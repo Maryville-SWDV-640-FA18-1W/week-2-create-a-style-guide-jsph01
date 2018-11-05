@@ -1,261 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>My Style Guide</title>
-
-    <!-- Site theme -->
-    <link rel="stylesheet" type="text/css" href="css/theme.css">
-
-    <!--  Place Custom Styles Below -->
-    <style>
-        body {
-            font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
-            color: black;
-        }
-
-        h1 {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        h2 {
-            font-size: 20px;
-        }
-
-        h3 {
-            font-size: 16px;
-        }
-
-        button {
-            background-color: orange;
-            border-radius: 5px;
-            padding: 10px;
-            color: white;
-        }
-
-        .inputLabel {
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        input.inputField {
-            padding: 5px;
-            border: 1px solid orange;
-        }
-
-        div.box {
-            height: 100px;
-            width: 100px;
-            display: inline-block;
-            margin: 0 10px 0 10px;
-        }
-
-        #primary1 {
-            background-color: orange;
-        }
-
-        #primary2 {
-            background-color: red;
-        }
-
-        #primary3 {
-            background-color: yellow;
-        }
-
-        .warning {
-            background-color: yellow;
-            font-weight: bold;
-            color: black;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .danger {
-            background-color: red;
-            font-weight: bold;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .success {
-            background-color: green;
-            font-weight: bold;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        svg.svg-inline--fa {
-            color: white;
-        }
-
-        .spacer {
-            margin-top: 25px;
-        }
-
-        #footer {
-            border-top: 1px solid #dddddd;
-            margin-top: 50px;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
-	<!-- Include script for font awesome icon library -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<html>
+<head><title>Week 2</title>
+	<link rel='stylesheet' type='text/css' href='week2.css'/>
+	<script>
+		function formSubmit(frm)
+		{	
+			var divErr = document.getElementById("divError");
+			var divWarn = document.getElementById("divWarning");
+			var divSuccess = document.getElementById("divSuccess");
+			divErr.innerHTML="";
+			divWarn.innerHTML="";
+			divSuccess.innerHTML="";
+			var errors=0;
+			if (frm.lastname.value==""){
+				divErr.innerHTML="<h2>Missing last name</h2>";
+				++errors;
+			}
+			if (frm.firstname.value==""){
+				divErr.innerHTML+="<h2>Missing first name</h2>";
+				++errors;
+			}
+			if (!frm.cbPrivate.checked){
+				divWarn.innerHTML+="<h2>Data is not private</h2>";
+				++errors;
+			}
+			if (!frm.optGender[0].checked && !frm.optGender[1].checked){
+				divWarn.innerHTML+="<h2>No gender selected</h2>";
+				++errors;
+			}
+			if (errors==0)
+			{
+				divSuccess.innerHTML+="<h2>All looks good</h2>";
+			}
+			return false;
+		}
+	</script>
 </head>
-
 <body>
-    <a name="Top"></a>
-    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="#">
-                    <span class="navbar-brand">
-                        <i class="fas fa-home"></i>My Interface Style Guide</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="col-md-3">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="#font">Font</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#colorTheme">Color Theme</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#headings">Headings</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#buttons">Buttons</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#formElements">Form Elements</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#messages">Messages</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-9">
-            <!-- About -->
-            <div>
-                <div class="page-header">
-                    <h1>
-                        <a name="about"></a>My Styles</h1>
-                </div>
-                <p>This page contains specific style guide information for my front end interface.</p>
-            </div>
-            <!-- End About -->
+	<h3 id='idH1'>Joseph Lister</h3>
+	<h3>User Interface Design</h3>
+	<h3>Week 2 Assignment</h3> 
+	<h3>November 4, 2018</h3>
+	<h2 id='refTop'><a href='#refTop'>My Interface Style Guide</a></h2>
+	<ul id='myList'>
+		<li><a href='#divFont'>Font</a></li>
+		<li><a href='#divColor'>Color</a></li>
+		<li><a href='#divHeadings'>Heading</a></li>
+		<li><a href='#buttons'>Button</a></li>
+		<li><a href='#myForm'>Form</a></li>
+		<li><a href='#divMessage'>Messages</a></li>
+	</ul>
+	<h2>My Styles</h2>
+	<h3>This page contains specific style guide information for my front end interface.</h3>
+	<form action="" method="post" onsubmit="return formSubmit(this)">
+		<div id='divForm' class='classForm'>
+		<h2 id='myForm'>Form Elements:</h2>
+		<label for='lastname'> Last Name:</label>
+		<input type='text' name='lastname' id='lastname'/>
+		
+		<label for='firstname'>First Name:</label>
+		<input type='text' name='firstname' id='firstname'/>
+		<br/>
+		<input type='checkbox' name='cbPrivate' id='cbPrivate'/>
+				<label for='cbPrivate'>Keep Private</label>
 
-            <!-- Fonts -->
-            <div>
-                <div class="page-header">
-                    <h1>
-                        <a name="fonts"></a>Font</h1>
-                </div>
-                <p>My application utilizes the "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica,
-                    Arial, "sans-serif" font-family with black text.</p>
-            </div>
-            <div class="spacer">
-                <a href="#Top">Back to Top</a>
-            </div>
-            <!-- End Fonts -->
+		<br/>
+		<label for='optGender'>Gender: </label>
+		<input type='radio' name='optGender' id='optGender' value='Male'/>Male
+		<input type='radio' name='optGender' id='optGender' value='Female'/>Female
+		<p><a href='#refTop'>Back to top</a></p>
+		<hr/>
+		<h2 id='buttons'>Buttons:</h2>
+		<input type='submit' value='send data' id='btnSubmit'/>
+		<input type='reset' value='reset'/>
+		<p><a href='#refTop'>Back to top</a></p>
+		</div>
+	</form>
+	<div id='divMessage'>
+		<h2>Messages:</h2>
+		<div id='divError' class='error'>Error!</div>
+		<div id='divWarning' class='warning'>Warning!</div>
+		<div id='divSuccess' class='success'>Success!</div>
+	</div>
+	<p><a href='#refTop'>Back to top</a></p>
 
-            <!-- Color Theme -->
-            <div>
-                <div class="page-header">
-                    <h1>
-                        <a name="colorTheme"></a>Color Theme</h1>
-                </div>
-                <p>My application incorporates the below color scheme in its interface.</p>
-                <div class="box" id="primary1"></div>
-                <div class="box" id="primary2"></div>
-                <div class="box" id="primary3"></div>
-            </div>
-            <div class="spacer">
-                <a href="#Top">Back to Top</a>
-            </div>
-            <!-- End Color Theme -->
+	<h2 id='divFont'>Fonts:</h2>
+	<div>
+		<h3>
+		My application utilizes the "Helvetica," "Arial," and "Sans-Serif" font-family with black text.
+		</h3>
+	</div>
+	<p><a href='#refTop'>Back to top</a></p>
 
-            <!-- Headings -->
-            <div>
-                <div class="page-header">
-                    <h1>
-                        <a name="headings"></a>Headings</h1>
-                </div>
-                <p>The below font sizes and styles are used in the application for various content headings.</p>
-                <h1>Heading 1</h1>
-                <h2>Heading 2</h2>
-                <h3>Heading 3</h3>
-            </div>
-            <div class="spacer">
-                <a href="#Top">Back to Top</a>
-            </div>
-            <!-- End Headings -->
 
-            <!-- Buttons -->
-            <div>
-                <div class="page-header">
-                    <h1>
-                        <a name="buttons"></a>Buttons</h1>
-                </div>
-                <p>The application will feature buttons that contain the below color and shape:</p>
-                <button>My Button</button>
-            </div>
-            <div class="spacer">
-                <a href="#Top">Back to Top</a>
-            </div>
-            <!-- End Buttons -->
 
-            <!-- Form Elements -->
-            <div>
-                <div class="page-header">
-                    <h1>
-                        <a name="formElements"></a>Form Elements</h1>
-                </div>
-                <p>For the varous forms that the application will contain, it will contain input fields and labels with the below styling:</p>
-                <form>
-                    <label for="name" class="inputLabel">Name</label>
-                    <input type="input" id="name" class="inputField" value="">
-                </form>
-            </div>
-            <div class="spacer">
-                <a href="#Top">Back to Top</a>
-            </div>
-            <!-- End Form Elements -->
+	<div id='divHeadings'>
+		<h2>Headings:</h2>
+		<h3>The below font sizes and styles are used in the application for various content headings.</h3>
 
-            <!-- User Messages -->
-            <div>
-                <div class="page-header">
-                    <h1>
-                        <a name="messages"></a>Messages</h1>
-                </div>
-                <p>For various completed tasks, application notifications will be presented to the user based.  The following contextual messages will be used.</p>
-                <p class="warning">Warning!</p>
-                <p class="danger">Danger!</p>
-                <p class="success">Success!</p>
-            </div>
-            <div class="spacer">
-                <a href="#Top">Back to Top</a>
-            </div>
-            <!-- End User Messages -->
-        </div>
-    </div>
-    <div id="footer">
-        <div class="container">
-            <p class="text-muted">Copyright My Style Guide</p>
-        </div>
-    </div>
+		<h1>Heading 1</h1>
+		<h2>Heading 2</h2>
+		<h3>Heading 3</h3>
+		<p><a href='#refTop'>Back to top</a></p>
+	</div>
+	<h2 id='divColor'>Color Theme:</h2>
+	<div id='divColor' class='color2'></div>
+	<div class='color1'></div>
+	<div class='color3'></div>
 </body>
-
 </html>
